@@ -11,7 +11,6 @@ export class MovieDataService {
 
   movies() {
     let res = this.http.get(this.movieUrl);
-
     return res;
   }
 }

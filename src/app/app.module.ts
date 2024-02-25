@@ -9,9 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowMovieDetailsComponent } from './show-movie-details/show-movie-details.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, SingupComponent, LoginComponent, HomeComponent, ShowMovieDetailsComponent],
+  declarations: [AppComponent, SingupComponent, LoginComponent, HomeComponent, ShowMovieDetailsComponent, NavbarComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

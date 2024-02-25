@@ -7,11 +7,16 @@ import { ShowMovieDetailsComponent } from './show-movie-details/show-movie-detai
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: '', component: SingupComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', title: 'BestMovies - Register', component: SingupComponent },
+  { path: 'login', title: 'BestMovies - Login', component: LoginComponent },
   {
-    path: 'detail',
+    path: 'home',
+    title: 'BestMovies - Home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'detail/:id',
     component: ShowMovieDetailsComponent,
     canActivate: [AuthGuard],
   },
