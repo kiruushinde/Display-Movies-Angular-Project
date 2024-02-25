@@ -10,7 +10,7 @@
         </nav>
         <button
             class="inline-flex items-center bg-teal-500 font-semibold text-white border-0 py-1 px-3 focus:outline-none hover:bg-teal-600 rounded text-base mt-4 md:mt-0">
-            <a routerLink="/login">Log Out</a>
+            <a (click)="logoutUser()" routerLink="/login">Log Out</a>
         </button>
     </div>
 </header>
@@ -25,7 +25,7 @@
         </h2>
 
         <div id="movies" *ngFor="let d of data">
-            <li routerLink="/details">{{ d.title | json}}</li>
+            <li (click)="gotoMovieDetails()">{{ d.title | json}}</li>
         </div>
         <button (click)="showData()"
             class="bg-teal-500 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded-full mt-6">Show
