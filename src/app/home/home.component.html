@@ -6,12 +6,12 @@
     <div id="leftside" class="pl-20 pt-10 w-[50%] flex-col justify-start">
         <h2 class="text-4xl mb-[30px] w-[90%] font-bold">We Recommend Best
             <span class="text-teal-500 hover:text-teal-400 cursor-pointer">Movies</span>
-
             for You
         </h2>
 
         <div id="movies">
-            <li *ngFor="let d of data" (click)="gotoMovieDetails(d.id)">{{ d.title | json}} </li>
+            <li *ngFor="let d of movies" (click)="gotoMovieDetails(d.id)" [routerLink]="['/detail', d.id]">{{ d.title }}
+            </li>
         </div>
 
         <button (click)="showData()"
