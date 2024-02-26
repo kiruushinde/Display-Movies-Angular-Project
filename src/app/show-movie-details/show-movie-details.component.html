@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
-<div id="showDetails" class="flex flex-col items-center justify-center">
-    <h1>ID : {{ movies.id }}</h1>
-    <h1>Movie Title : {{ movies.title }}</h1>
-    <h1>Released Date : {{ movies.releaseYear }}</h1>
+<div id="showDetails" class="flex flex-col items-center justify-center" *ngIf="(movie$ | async) as movie">
+    <h1>ID : {{ movie.id }}</h1>
+    <h1>Movie Title : {{ movie.title }}</h1>
+    <h1>Released Date : {{ movie.releaseYear }}</h1>
 </div>
