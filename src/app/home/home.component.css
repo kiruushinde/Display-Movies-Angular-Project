@@ -21,6 +21,10 @@ img {
     height: 100%;
   }
 
+  #leftside {
+    padding-left: 2rem;
+    padding-right: 1rem;
+  }
   #img3 {
     display: none;
   }
@@ -40,11 +44,6 @@ img {
     top: 0;
     right: 0;
     width: 70%;
-    /* width: 60%; */
-    /* left: 30%;
-    right: 50%;
-    top: 30vh;
-    transform: translate(-50%, -50%); */
   }
 
   #rightside {

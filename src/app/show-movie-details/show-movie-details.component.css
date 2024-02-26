@@ -16,3 +16,10 @@ div {
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 600px) {
+  #showDetails h1 {
+    width: 100%;
+    font-size: 4vw;
+  }
+}
