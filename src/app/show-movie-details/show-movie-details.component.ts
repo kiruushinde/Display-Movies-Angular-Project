@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { StoreMovieService } from '../services/store-movie.service';
 import { ApidataService } from '../apidata.service';
 import { Observable } from 'rxjs';
 import { Movie } from '../movie';
@@ -11,12 +10,10 @@ import { Movie } from '../movie';
   styleUrl: './show-movie-details.component.css',
 })
 export class ShowMovieDetailsComponent implements OnInit {
-  movie: any;
-  movies: any;
+  movie$: Observable<Movie | undefined> | undefined;
 
   constructor(
     private route: ActivatedRoute,
-    private movieService: StoreMovieService,
     private apiMovie: ApidataService
   ) {}
 
@@ -28,8 +25,11 @@ export class ShowMovieDetailsComponent implements OnInit {
     // document.title = 'BestMovies - Movie ' + id;
 
     const id2: any = this.route.snapshot.paramMap.get('id');
-    this.movies = this.movieService.getMovieById(id2);
 
-    console.log('the current movie is : ', this.movies);
+    if (id2) {
+      this.movie$ = this.apiMovie.getMovieById(id2);
+    }
+    console.log('displaying movie details : ', this.movie$);
+    // this is observable, you need to subscribe it and when you go in view templatet there you can async it..
   }
 }

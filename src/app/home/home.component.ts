@@ -1,30 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
-import { StoreMovieService } from '../services/store-movie.service';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { Movie } from '../movie';
 import { ApidataService } from '../apidata.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements OnInit {
-  data: any;
-  movies: Movie[] = [];
+export class HomeComponent {
+  // movies: Movie[] = [];
+  movies$: Observable<Movie[]> | undefined;
 
-  constructor(
-    private route: Router,
-    private auth: AuthService,
-    private movi: StoreMovieService,
-    private apidata: ApidataService
-  ) {}
+  constructor(private apidata: ApidataService) {}
 
-  ngOnInit(): void {}
-
-  showData() {
+  showMovieNames() {
     // this.moviesData.movies().subscribe((res: any) => {
     //   console.log(res);
     //   this.data = res.movies;
@@ -40,14 +30,22 @@ export class HomeComponent implements OnInit {
     // console.log(this.data);
     // if (this.data != null) alert('All movies are listed');
     // else alert('Please try once again !!');
-    this.apidata.getMovies().subscribe((response) => {
-      console.log('data we got from api is ', response);
-      this.movies = response;
-    });
+
+    // this.apidata.getMovies().subscribe((response) => {
+    //   console.log('data we got from api is ', response);
+    //   this.movies$ = response;
+    // });
+
+    this.movies$ = this.apidata.getMovies();
+    console.log('The list of movies is : ', this.movies$);
   }
 
+  /*
+  
+  // if you want to use below method, then add (click)="gotoMovieDetails(d.id)" to the button, there I have used another way which directly navigates to the desired route...
   gotoMovieDetails(id: string): void {
     console.log('the id is : ', id);
     this.route.navigate(['/detail', id]);
   }
+  */
 }

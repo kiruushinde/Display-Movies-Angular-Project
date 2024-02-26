@@ -9,12 +9,12 @@
             for You
         </h2>
 
-        <div id="movies">
-            <li *ngFor="let d of movies" (click)="gotoMovieDetails(d.id)" [routerLink]="['/detail', d.id]">{{ d.title }}
+        <div id="movies" *ngIf="(movies$ | async) as movies">
+            <li *ngFor="let movie of movies" [routerLink]="['/detail', movie.id]">{{ movie.title }}
             </li>
         </div>
 
-        <button (click)="showData()"
+        <button (click)="showMovieNames()"
             class="bg-teal-500 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded-full mt-6">
             Show Movies
         </button>

@@ -9,6 +9,7 @@ import { AuthService } from '../auth.service';
 export class NavbarComponent {
   constructor(private auth: AuthService) {}
   logoutUser() {
+    console.log('user has logged out');
     this.auth.logout();
   }
 }
