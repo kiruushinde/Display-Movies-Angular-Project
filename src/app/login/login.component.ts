@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
     password: '',
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private auth: AuthService) {}
   allusers: any = localStorage.getItem('registeredUsers');
 
   onSignIn() {
@@ -28,7 +29,10 @@ export class LoginComponent {
     );
 
     if (isLoggedIn) {
+      this.auth.login();
+
       console.log('user is logged in ');
+
       this.router.navigateByUrl('/home');
     } else {
       console.log('not logged in');

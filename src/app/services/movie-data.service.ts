@@ -6,9 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MovieDataService {
   constructor(private http: HttpClient) {}
+
   movieUrl = 'https://reactnative.dev/movies.json';
 
   movies() {
-    return this.http.get(this.movieUrl);
+    let res = this.http.get(this.movieUrl);
+    return res;
   }
 }
