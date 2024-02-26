@@ -29,6 +29,7 @@ export class HomeComponent {
 
     //   console.log('Movies are now : ', this.movies.getMovies());
     // });
+
     let allMovies = this.movi.getMovies();
     this.data = allMovies;
     console.log(this.data);
@@ -39,9 +40,5 @@ export class HomeComponent {
   gotoMovieDetails(id: string): void {
     console.log('the id is : ', id);
     this.route.navigate(['/detail', id]);
-  }
-
-  logoutUser() {
-    this.auth.logout();
   }
 }

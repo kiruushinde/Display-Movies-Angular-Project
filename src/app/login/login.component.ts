@@ -8,12 +8,15 @@ import { AuthService } from '../auth.service';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  // create login object
   loginObj = {
     email: '',
     password: '',
   };
 
   constructor(private router: Router, private auth: AuthService) {}
+
+  // fetch all users from registered users ✨
   allusers: any = localStorage.getItem('registeredUsers');
 
   onSignIn() {
@@ -30,9 +33,7 @@ export class LoginComponent {
 
     if (isLoggedIn) {
       this.auth.login();
-
       console.log('user is logged in ');
-
       this.router.navigateByUrl('/home');
     } else {
       console.log('not logged in');
@@ -43,7 +44,6 @@ export class LoginComponent {
   // function to find the current is logged in or not / whether he have an account or not
   loginUser(email: string, password: string): boolean {
     const user = JSON.parse(this.allusers);
-
     const Isuser = user.find(
       (u: any) => u.email === email && u.password === password
     );
