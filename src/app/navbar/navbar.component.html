@@ -1,16 +1,16 @@
 <header class="text-gray-600 body-font border border-b-slate-300">
-    <div class="container mx-auto flex justify-center flex-wrap p-5 flex-col md:flex-row items-center">
-        <a routerLink="/home"
-            class="cursor-pointer flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+    <div class="container mx-auto flex justify-between flex-wrap p-5 items-center">
+        <!-- keep a point in mind that, in tailwind we are applying media queries, but they are applied on min-width not max-width so write your logic accordingly sm: 640px which means 640 px and wider -->
+        <a routerLink="/home" class="cursor-pointer flex title-font font-medium items-center text-gray-900">
             <span class="ml-3 text-xl">BestMovies.com</span>
         </a>
-        <nav class="md:ml-auto md:mr-auto font-medium flex flex-wrap items-center text-base justify-center">
-            <a class="mr-5 hover:text-gray-900 cursor-pointer">Home</a>
-            <a class="mr-5 hover:text-gray-900 cursor-pointer">About</a>
-            <a class="mr-5 hover:text-gray-900 cursor-pointer">Movies</a>
+        <nav class="font-medium flex flex-wrap items-center text-base justify-center">
+            <a class="mr-5 hidden sm:block hover:text-gray-900 cursor-pointer">Home</a>
+            <a class="mr-5 hidden sm:block hover:text-gray-900 cursor-pointer">About</a>
+            <a class="mr-5 hidden sm:block hover:text-gray-900 cursor-pointer">Movies</a>
         </nav>
         <button
-            class="inline-flex items-center bg-teal-500 font-semibold text-white border-0 py-1 px-3 focus:outline-none hover:bg-teal-600 rounded text-base mt-4 md:mt-0">
+            class="inline-flex items-center bg-teal-500 font-semibold text-white border-0 py-1 px-3 focus:outline-none hover:bg-teal-600 rounded text-base">
             <a (click)="logoutUser()" routerLink="/login">Log Out</a>
         </button>
     </div>
