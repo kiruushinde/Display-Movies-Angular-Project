@@ -11,6 +11,7 @@ export class StoreMovieService {
     this.getMovies();
   }
 
+  // subscribe to the observable returned from movies();
   getMovies(): any[] {
     this.movie.movies().subscribe((m: any) => {
       this.movieArray = m.movies;

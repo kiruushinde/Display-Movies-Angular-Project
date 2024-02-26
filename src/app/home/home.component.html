@@ -1,16 +1,17 @@
 <app-navbar></app-navbar>
 
 <div id="hero" class="flex w-full h-full gap-20 mt-14 relative">
+
+    <!-- left side hero section -->
     <div id="leftside" class="pl-20 pt-10 w-[50%] flex-col justify-start">
         <h2 class="text-4xl mb-[30px] w-[90%] font-bold">We Recommend Best
-
             <span class="text-teal-500 hover:text-teal-400 cursor-pointer">Movies</span>
-
             for You
         </h2>
 
         <div id="movies">
-            <li *ngFor="let d of data" (click)="gotoMovieDetails(d.id)">{{ d.title | json}} </li>
+            <li *ngFor="let d of movies" (click)="gotoMovieDetails(d.id)" [routerLink]="['/detail', d.id]">{{ d.title }}
+            </li>
         </div>
 
         <button (click)="showData()"
@@ -18,7 +19,7 @@
             Show Movies
         </button>
     </div>
-
+    <!-- right side hero section -->
     <div id="rightside" class="w-[50%] flex items-center justify-center">
         <img id="img1" class="allteam w-[35vw] absolute top-10 right-40 z-10" src="../../assets/team.png" alt="">
         <img id="img2" class="america w-52 rounded-md absolute right-[500px] -top-10" src="../../assets/america.png"
@@ -26,4 +27,5 @@
         <img id="img3" class="panther w-72 rounded-md absolute top-2 right-0" src="../../assets/balckpanthor.png"
             alt="">
     </div>
+
 </div>
