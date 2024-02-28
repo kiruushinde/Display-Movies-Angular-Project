@@ -5,13 +5,22 @@
             <span class="ml-3 text-xl">BestMovies.com</span>
         </a>
         <nav class="font-medium flex flex-wrap items-center text-base justify-center">
-            <a class="mr-5 hidden sm:block hover:text-gray-900 cursor-pointer">Home</a>
-            <a class="mr-5 hidden sm:block hover:text-gray-900 cursor-pointer">About</a>
-            <a class="mr-5 hidden sm:block hover:text-gray-900 cursor-pointer">Movies</a>
+            <a
+                class="mr-5 hidden sm:block hover:text-gray-900 cursor-pointer hover:underline underline-offset-1 transition-all">Home</a>
+            <a
+                class="mr-5 hidden sm:block hover:text-gray-900 cursor-pointer hover:underline underline-offset-1">About</a>
+            <a
+                class="mr-5 hidden sm:block hover:text-gray-900 cursor-pointer hover:underline underline-offset-1">Movies</a>
         </nav>
-        <button
-            class="inline-flex items-center bg-teal-500 font-semibold text-white border-0 py-1 px-3 focus:outline-none hover:bg-teal-600 rounded text-base">
-            <a (click)="logoutUser()" routerLink="/login">Log Out</a>
-        </button>
+        <div class="flex items-center justify-center gap-2 mr-[-89px]">
+            <button
+                class="inline-flex items-center bg-teal-500 font-semibold text-white border-0 py-1 px-3 focus:outline-none hover:bg-teal-600 rounded text-base transition-all duration-500">
+                <a (click)="logoutUser()" routerLink="/login">Log Out</a>
+            </button>
+            <p class="username underline rounded hover:-translate-y-3 cursor-pointer transition-all duration-700">
+                {{email.substring(0,
+                email.indexOf('@'))}}
+            </p>
+        </div>
     </div>
 </header>

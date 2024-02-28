@@ -65,10 +65,10 @@ img {
 
 #movies li {
   list-style: none;
-  background-color: rgb(213 222 232);
+  /* background-color: rgb(213 222 232); */
   padding: 7px;
   margin: 5px;
-  color: black;
+  /* color: black; */
   font-size: 18px;
   font-weight: 600;
   padding-left: 30px;

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { FetchlogindataService } from '../services/fetchlogindata.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,11 @@ export class LoginComponent {
     password: '',
   };
 
-  constructor(private router: Router, private auth: AuthService) {}
+  constructor(
+    private router: Router,
+    private auth: AuthService,
+    private loginData: FetchlogindataService
+  ) {}
 
   // fetch all users from registered users ✨
   allusers: any = localStorage.getItem('registeredUsers');
@@ -24,7 +29,8 @@ export class LoginComponent {
     const loggedInUsers = [];
     loggedInUsers.push(this.loginObj);
     localStorage.setItem('logInUsers', JSON.stringify(loggedInUsers));
-
+    console.log('currently singed in user is : ', this.loginObj.email);
+    this.loginData.currentUser = loggedInUsers;
     // check whether this user is found or not in local storage
     const isLoggedIn = this.loginUser(
       this.loginObj.email,
