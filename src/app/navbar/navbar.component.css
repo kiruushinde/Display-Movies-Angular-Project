@@ -1,0 +1,9 @@
+.username {
+  font-family: monospace;
+  font-size: 1.1vw;
+  background-color: white;
+  border: 1px solid white;
+  padding: 5px;
+  color: rgb(20 184 166);
+  box-shadow: 2px 2px 0px 0px #dadada;
+}
