@@ -6,6 +6,4 @@ import { Injectable } from '@angular/core';
 export class FetchlogindataService {
   currentUser: any = [];
   constructor() {}
-
-  loggedInUser: any = localStorage.getItem('logInUsers');
 }
